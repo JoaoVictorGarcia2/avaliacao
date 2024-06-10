@@ -4,28 +4,28 @@ import { StyleSheet, Text, TextInput, View, Button, Alert } from 'react-native';
 const AddBook = ({ route, navigation }) => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
-  const [year, setYear] = useState('');
-  const [genre, setGenre] = useState('');
-  const [description, setDescription] = useState('');
+  const [ano, setAno] = useState('');
+  const [genero, setGenero] = useState('');
+  const [descricao, setDescricao] = useState('');
 
   const { setBooks } = route.params;
 
   const handleSaveBook = () => {
-    if (title && author && year && genre && description) {
+    if (title && author && ano && genero && descricao) {
       setBooks((prevBooks) => [
         ...prevBooks,
-        { title, author, year, genre, description },
+        { title, author, ano, genero, descricao },
       ]);
-      Alert.alert('Success', 'Book added successfully!');
+      Alert.alert('Sucesso', 'Livro adicionado ocm sucesso!');
       navigation.goBack();
     } else {
-      Alert.alert('Error', 'Please fill out all fields');
+      Alert.alert('Erro', 'Confira se todos os campos estão preenchidos.');
     }
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Add Book</Text>
+      <Text style={styles.titulo}>Info sobre o livro</Text>
       <TextInput
         style={styles.input}
         placeholder="Titulo"
@@ -41,21 +41,21 @@ const AddBook = ({ route, navigation }) => {
       <TextInput
         style={styles.input}
         placeholder="Ano de publicação"
-        value={year}
-        onChangeText={setYear}
+        value={ano}
+        onChangeText={setAno}
         keyboardType="numeric"
       />
       <TextInput
         style={styles.input}
         placeholder="Genero"
-        value={genre}
-        onChangeText={setGenre}
+        value={genero}
+        onChangeText={setGenero}
       />
       <TextInput
         style={styles.input}
         placeholder="Descrição"
-        value={description}
-        onChangeText={setDescription}
+        value={descricao}
+        onChangeText={setDescricao}
       />
       <Button title="Adicionar livro" onPress={handleSaveBook} color="#6200ee" />
     </View>
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 16,
   },
-  title: {
+  titulo: {
     fontSize: 24,
     marginBottom: 20,
     color: '#6200ee',

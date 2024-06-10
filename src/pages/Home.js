@@ -8,24 +8,24 @@ const Home = ({ navigation }) => {
     const newBooks = [...books];
     newBooks.splice(index, 1);
     setBooks(newBooks);
-    Alert.alert('Success', 'Book deleted successfully!');
+    Alert.alert('Sucesso', 'Livro deletado com seucesso!');
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Books</Text>
+      <Text style={styles.title}>Meus livros salvos</Text>
       <FlatList
         data={books}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item, index }) => (
           <View style={styles.bookContainer}>
             <Text style={styles.bookTitle}>{item.title}</Text>
-            <Text>Author: {item.author}</Text>
-            <Text>Year: {item.year}</Text>
-            <Text>Genre: {item.genre}</Text>
-            <Text>Description: {item.description}</Text>
+            <Text>Autor: {item.author}</Text>
+            <Text>Ano: {item.year}</Text>
+            <Text>Genero: {item.genre}</Text>
+            <Text>Descrição: {item.description}</Text>
             <Button
-              title="Delete Book"
+              title="Remover livro"
               onPress={() => handleDeleteBook(index)}
               color="#ff0000"
             />
@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
+    marginTop: 50,
     marginBottom: 20,
     color: '#6200ee',
     textAlign: 'center',
