@@ -1,33 +1,24 @@
-import 'react-native-gesture-handler';
-import * as React from 'react';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import CreateAccount from './src/pages/CreateAccount';
-import Home from './src/pages/Home';
 import Login from './src/pages/Login';
+import Home from './src/pages/Home';
+import AddBook from './src/pages/AddBook';
 
 const Stack = createStackNavigator();
 
-function App() {
+const Routes = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
-  <Stack.Screen
-    name="Login"
-    component={Login}
-    options={{ headerShown: false }} // Oculta a barra de navegação
-  />
-  <Stack.Screen
-    name="CreateAccount"
-    component={CreateAccount}
-    options={{ headerShown: false }} // Oculta a barra de navegação
-  />
-  <Stack.Screen
-    name="Home"
-    component={Home} />
-</Stack.Navigator>
+      <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="CreateAccount" component={CreateAccount} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="AddBook" component={AddBook} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
-}
+};
 
-export default App;
+export default Routes;

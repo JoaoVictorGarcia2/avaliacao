@@ -29,13 +29,13 @@ const Login = ({ navigation }) => {
       <Text style={styles.title}>Login</Text>
       <TextInput
         style={styles.input}
-        placeholder="Username"
+        placeholder="Nome"
         value={username}
         onChangeText={setUsername}
       />
       <TextInput
         style={styles.input}
-        placeholder="Password"
+        placeholder="Senha"
         value={password}
         onChangeText={setPassword}
         secureTextEntry

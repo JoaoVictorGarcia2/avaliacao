@@ -5,6 +5,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const CreateAccount = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [telefone, setTelefone] = useState('');
 
   const handleCreateAccount = async () => {
     if (username && password) {
@@ -25,13 +27,25 @@ const CreateAccount = ({ navigation }) => {
       <Text style={styles.title}>Criar Conta</Text>
       <TextInput
         style={styles.input}
-        placeholder="Username"
+        placeholder="Nome"
         value={username}
         onChangeText={setUsername}
       />
       <TextInput
         style={styles.input}
-        placeholder="Password"
+        placeholder="Telefone"
+        value={telefone}
+        onChangeText={setTelefone}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="E-mail"
+        value={email}
+        onChangeText={setEmail}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Senha"
         value={password}
         onChangeText={setPassword}
         secureTextEntry
